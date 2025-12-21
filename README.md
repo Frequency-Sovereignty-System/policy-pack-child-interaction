@@ -1,90 +1,136 @@
-# PolicyPack：儿童互动边界（PP-CHILD-INTERACTION）
+# PolicyPack – Child Interaction Safety Boundary  
+**PP-CHILD-INTERACTION**
 
-**状态：** 已激活  
-**版本：** 1.0.0  
-**包 ID：** PP-CHILD-INTERACTION  
-**根身份锚点：** tux133144.eth  
-**协议兼容性：** PFIP v1.1（非绑定兼容性）  
-**类型：** 参考性安全边界规则集（人工审核优先）
+**Status:** Published  
+**Version:** 1.0.0  
+**Policy ID:** PP-CHILD-INTERACTION  
 
----
+**Root Identity Anchor:** tux133144.eth  
+> This anchor is used solely for authorship and provenance identification.  
+> It does not imply control, authorization, enforcement, or execution authority.
 
-## 目的
-
-本 PolicyPack 定义了任何**可能与未成年人（儿童用户）或儿童相关环境产生交互**的产品或系统所应参考的**最低安全边界**。
-
-其设计目标是：
-
-- 可被法律 / 合规团队阅读与审查  
-- 可由工程团队映射并实施  
-- **非自动化、非执行性**：本规则集不执行决策，仅定义**何时应触发人工确认或阻断**
+**Protocol Compatibility:** PFIP v1.1 (non-binding compatibility)  
+**Type:** Reference Safety Boundary Policy Pack (Human Review Priority)
 
 ---
 
-## 这是什么 / 这不是什么
+## Purpose
 
-### 这是：
-- 一个**参考性边界规则集**
-- 一个用于支持安全决策的**非绑定标准**
-- 一个可被实现方映射至自身系统的规则参考
+This PolicyPack defines the **minimum safety boundaries** that should be referenced by any product or system that may interact with **children (minors)** or **child-related environments**.
 
-### 这不是：
-- 法律建议  
-- 医疗或心理建议  
-- 合规认证  
-- 贵组织自身政策的替代品  
-- 命令或控制系统  
+It is designed to be:
+
+- Readable and reviewable by legal and compliance teams  
+- Understandable and mappable by engineering teams  
+- **Non-automated and non-executive**  
+  - This PolicyPack does **not** execute decisions  
+  - It only defines when **human confirmation or escalation** should be triggered
 
 ---
 
-## 典型集成模式（示例）
+## What This Is / What This Is Not
 
-1. 实施方系统检测到潜在的“儿童互动”场景  
-2. 实施方根据自身事件模型，将相关事件映射至 `policy.json` 中描述的触发条件  
-3. 当规则返回 `HUMAN_CONFIRM_REQUIRED` 或 `BLOCK` 时，实施方系统中止自动化流程，并进入人工审核或更高安全级别的工作流  
-4. 实施方仅记录**最少且必要的、隐私保护导向的证据数据**
+### This Is
+- A **reference-based safety boundary rule set**
+- A **non-binding standard** to support risk identification and safe system design
+- A framework that implementing parties may map into their own systems and workflows
 
-> 本 PolicyPack 不参与任何执行、监控或结果判断。  
-> 所有执行行为及其后果均由实施方系统自行承担。
-
----
-
-## 关键安全考量（参考）
-
-- 隐私最小化（少收集、少保留）  
-- 不对未成年人进行用户画像或行为型个性化  
-- **实施方侧期望：**不使用儿童相关内容进行模型训练或人物形象构建  
-- 对高风险或敏感操作进行人工确认  
-- 明确的红线与禁入边界  
+### This Is Not
+- Legal advice  
+- Medical or psychological advice  
+- A compliance certification  
+- A replacement for an organization’s internal policies  
+- A command, control, or enforcement system  
 
 ---
 
-## 文件结构
+## Typical Integration Pattern (Example)
 
-- `policy.json` — 机器可读的边界规则（≤50 条）  
-- `VERSION.md` — 版本与完整性说明  
-- `CHANGELOG.md` — 版本变更记录  
-- `NOTICE.md` — 使用范围与责任边界说明  
-- `LICENSE.md` — Apache License 2.0 授权文本  
-
----
-
-## Canonical Discovery
-
-- 根身份锚点：`tux133144.eth`  
-- PolicyPack 注册索引通过 ENS 文本记录发布：`policy.registry`
+1. The implementing system detects a potential **child-related interaction**  
+2. The system maps the detected event to trigger conditions defined in `policy.json`  
+3. If the returned signal is `HUMAN_CONFIRM_REQUIRED` or `BLOCK`:
+   - Automated processing must stop  
+   - The system must enter a **human review or higher-safety workflow**
+4. Only **minimal, privacy-first evidence data** should be recorded  
+5. This PolicyPack does **not** participate in execution, monitoring, or outcome judgment  
+6. All execution behavior and consequences remain **entirely the responsibility of the implementing party**
 
 ---
 
-## 责任与合规说明
+## Core Safety Considerations (Reference)
 
-本 PolicyPack 仅提供**参考性边界框架**，不构成法律意见或合规认证。
+- Privacy maximization (collect less, retain less)  
+- **No profiling, labeling, or behavioral personalization of children**  
+- **Expected practice:** child-related content must not be used for:
+  - Model training  
+  - Personality modeling  
+  - Identity or character construction  
+- Mandatory human confirmation for high-risk or sensitive operations  
+- Clear red lines and exclusion boundaries
 
-实施方自行负责：
+---
 
-- 风险评估与适用性判断  
-- 特定司法辖区下的合规义务  
-- 系统设计、执行与控制  
-- 事件响应、审计与报告  
+## Rule Signals (Interpretive Only)
 
+The following signals are **interpretive outputs**, not execution commands:
 
+- **HUMAN_CONFIRM_REQUIRED**  
+  Manual human review must occur before proceeding.
+
+- **BLOCK**  
+  Automated processing must stop. Escalation is required.
+
+- **ALLOW_WITH_LOG**  
+  Low-risk actions may proceed with **minimal, privacy-first logging**.
+
+---
+
+## Repository Structure
+
+- `policy.json`  
+  Machine-readable boundary rules (≤ 50 rules)
+
+- `VERSION.md`  
+  Version status and known limitations
+
+- `CHANGELOG.md`  
+  Version change history
+
+- `NOTICE.md`  
+  Usage scope, responsibility boundaries, and non-binding declaration
+
+- `LICENSE.md`  
+  Apache License 2.0
+
+---
+
+## Registration & Discovery
+
+- Root identity anchor: `tux133144.eth`  
+- PolicyPack registry index may be published via ENS text record:  
+  **`policy.registry`**
+
+---
+
+## Responsibility & Compliance Notice
+
+This PolicyPack provides **reference safety boundaries only**.  
+It does **not** constitute legal advice, compliance certification, or risk endorsement.
+
+Implementing parties remain solely responsible for:
+
+- Risk assessment and applicability determination  
+- Compliance with jurisdiction-specific laws and regulations  
+- System design, execution, and control  
+- Incident response, auditing, and reporting
+
+---
+
+## Statement of Intent
+
+This PolicyPack exists to **prevent unbounded automation**  
+and to **preserve human judgment and responsibility**  
+in systems involving children.
+
+It defines **what must not be automated**,  
+not what must be decided.
