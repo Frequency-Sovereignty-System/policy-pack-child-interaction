@@ -134,3 +134,22 @@ in systems involving children.
 
 It defines **what must not be automated**,  
 not what must be decided.
+
+## For Implementers — How to Reference This PolicyPack
+
+This PolicyPack is provided as a **non-binding reference boundary document** intended to support risk identification and human-review safeguards in child-related contexts.
+
+Implementers may reference this PolicyPack in any of the following ways:
+- as a design-time checklist during product or feature reviews,
+- as a safety reference for trust & safety or compliance discussions,
+- as an internal mapping guide to identify scenarios that may require human review or escalation.
+
+This PolicyPack:
+- does **not** prescribe technical implementations,
+- does **not** authorize or perform enforcement,
+- does **not** replace internal policies, legal review, or regulatory obligations.
+
+All system behavior, enforcement logic, escalation workflows, and operational decisions remain **entirely implementer-owned**.
+
+Referencing this PolicyPack does not create any obligation to adopt specific rules, thresholds, or processes, and does not establish any agency, partnership, or shared responsibility with the author.
+
