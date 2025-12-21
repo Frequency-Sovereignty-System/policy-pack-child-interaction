@@ -1,0 +1,195 @@
+{
+  "pack_id": "PP-CHILD-INTERACTION",
+  "pack_name": "Child Interaction Boundary PolicyPack",
+  "version": "1.0.0",
+
+  "status": "published",
+
+  "release_utc": "2025-12-21T00:00:00Z",
+
+  "root_identity": "tux133144.eth",
+  "root_identity_notice": "The root identity anchor is used solely for authorship and provenance identification. It does not imply control, authorization, governance, enforcement, or operational responsibility.",
+
+  "protocol_compatibility": ["PFIP-v1.1"],
+
+  "scope": {
+    "applies_to": [
+      "chat",
+      "voice",
+      "avatar",
+      "companion",
+      "robotics-interface",
+      "education-tools",
+      "content-platforms"
+    ],
+    "audience": [
+      "implementers",
+      "compliance",
+      "trust_and_safety",
+      "security_review"
+    ]
+  },
+
+  "non_binding_notice": "This PolicyPack is a reference boundary ruleset only. It does not impose obligations, does not grant authority, and does not constitute legal, regulatory, or compliance advice.",
+
+  "liability_boundary_notice": "This PolicyPack does not operate, execute, control, monitor, or enforce any system behavior. All design decisions, implementations, workflows, enforcement actions, and resulting outcomes remain solely the responsibility of the implementing party. The author bears no operational, legal, or compliance responsibility.",
+
+  "context_determination_notice": "All age detection, minor-context identification, and classification are performed entirely by the implementing system. This PolicyPack applies only after such context has been independently determined by the implementer.",
+
+  "trigger_language": "descriptive_pseudo_conditions_v1",
+  "non_executable_triggers": true,
+  "trigger_language_notice": "All triggers in this document are descriptive and illustrative only. They must not be treated as executable logic, decision engines, scoring systems, or automated enforcement rules. Implementers are solely responsible for mapping these descriptions to their own internal schemas and review processes.",
+
+  "enforcement_model": {
+    "default_mode": "HUMAN_REVIEW_FIRST",
+    "decision_actions": [
+      "ALLOW_WITH_GUARDRAILS",
+      "HUMAN_CONFIRM_REQUIRED",
+      "BLOCK"
+    ],
+    "automation_limit_notice": "This PolicyPack does not authorize autonomous enforcement or automated final decisions. Any enforcement logic, escalation workflows, or operational responses are owned and controlled exclusively by the implementer."
+  },
+
+  "data_minimization": {
+    "collect_only_what_needed": true,
+    "no_sensitive_inference": true,
+    "no_behavioral_profiling_for_minors": true,
+    "default_retention_days_recommendation": null,
+    "retention_notice": "Data retention periods are determined and enforced solely by the implementer. Any mention of retention in this PolicyPack is non-binding and illustrative only. Retention should be as short as strictly necessary."
+  },
+
+  "ai_use_limits": {
+    "implementer_no_training_on_child_content": true,
+    "implementer_no_persona_construction_from_child_interactions": true,
+    "implementer_no_emotional_dependency_optimization": true,
+    "ai_use_limits_notice": "These statements describe risk-reduction expectations only. They do not grant the author any authority over model training, system design, optimization strategies, or downstream usage."
+  },
+
+  "rules": [
+    {
+      "id": "CI-01",
+      "title": "Unknown age context",
+      "trigger": "age_unknown == true",
+      "action": "HUMAN_CONFIRM_REQUIRED",
+      "rationale": "When age cannot be reliably determined, interactions should default to human review before proceeding."
+    },
+    {
+      "id": "CI-02",
+      "title": "Self-declared minor",
+      "trigger": "user_declares_minor == true",
+      "action": "HUMAN_CONFIRM_REQUIRED",
+      "rationale": "Self-identification as a minor requires human judgment before further interaction."
+    },
+    {
+      "id": "CI-03",
+      "title": "Minor under 13",
+      "trigger": "user_age < 13",
+      "action": "HUMAN_CONFIRM_REQUIRED",
+      "rationale": "Interactions involving children under 13 require heightened safeguards and human confirmation."
+    },
+    {
+      "id": "CI-04",
+      "title": "Requests for personal contact or location",
+      "trigger": "requests_personal_contact_or_location == true",
+      "action": "BLOCK"
+    },
+    {
+      "id": "CI-05",
+      "title": "Offline meeting suggestions",
+      "trigger": "suggests_offline_meetup == true",
+      "action": "BLOCK"
+    },
+    {
+      "id": "CI-06",
+      "title": "Sexual content involving minors",
+      "trigger": "sexual_content_involving_minors == true",
+      "action": "BLOCK"
+    },
+    {
+      "id": "CI-07",
+      "title": "Romantic or relationship solicitation involving minors",
+      "trigger": "romantic_solicitation_with_minor_context == true",
+      "action": "BLOCK"
+    },
+    {
+      "id": "CI-08",
+      "title": "Adult-targeted content in minor context",
+      "trigger": "adult_content_in_minor_context == true",
+      "action": "BLOCK"
+    },
+    {
+      "id": "CI-09",
+      "title": "Bullying or targeted harassment in minor context",
+      "trigger": "bullying_or_targeted_harassment == true && minor_context == true",
+      "action": "HUMAN_CONFIRM_REQUIRED"
+    },
+    {
+      "id": "CI-10",
+      "title": "Self-harm signals in minor context",
+      "trigger": "self_harm_signal == true && minor_context == true",
+      "action": "HUMAN_CONFIRM_REQUIRED"
+    },
+    {
+      "id": "CI-11",
+      "title": "Medical or psychological diagnosis requests from minors",
+      "trigger": "medical_or_psych_diagnosis_request == true && minor_context == true",
+      "action": "HUMAN_CONFIRM_REQUIRED"
+    },
+    {
+      "id": "CI-12",
+      "title": "Medication dosing requests for minors",
+      "trigger": "medication_dosing_request_for_minor == true",
+      "action": "BLOCK"
+    },
+    {
+      "id": "CI-13",
+      "title": "Encouraging secrecy from guardians",
+      "trigger": "encourages_secrecy_from_guardians == true",
+      "action": "BLOCK"
+    },
+    {
+      "id": "CI-14",
+      "title": "Manipulative or dependency-building language toward minors",
+      "trigger": "encourages_emotional_dependency == true && minor_context == true",
+      "action": "BLOCK"
+    },
+    {
+      "id": "CI-15",
+      "title": "Financial solicitation involving minors",
+      "trigger": "requests_money_or_gifts == true && minor_context == true",
+      "action": "BLOCK"
+    },
+    {
+      "id": "CI-16",
+      "title": "Nude or explicit image requests involving minors",
+      "trigger": "requests_nudity_images == true && minor_context == true",
+      "action": "BLOCK"
+    },
+    {
+      "id": "CI-17",
+      "title": "Recording or surveillance involving minors",
+      "trigger": "requests_recording_or_surveillance == true && minor_present == true",
+      "action": "HUMAN_CONFIRM_REQUIRED"
+    },
+    {
+      "id": "CI-18",
+      "title": "Biometric or voiceprint data collection from minors",
+      "trigger": "requests_biometrics_from_minor == true",
+      "action": "BLOCK"
+    },
+    {
+      "id": "CI-19",
+      "title": "Behavioral targeting or personalization for minors",
+      "trigger": "behavioral_targeting_for_minor == true",
+      "action": "BLOCK"
+    },
+    {
+      "id": "CI-20",
+      "title": "Default uncertainty in minor context",
+      "trigger": "minor_context == true && implementer_flags_uncertainty == true",
+      "action": "HUMAN_CONFIRM_REQUIRED"
+    }
+  ]
+}
+
+
