@@ -16,6 +16,8 @@ Earlier drafts, experiments, forks, or unpublished materials are non-normative.
 
 **Protocol Compatibility:** PFIP v1.1 (non-binding compatibility)  
 **Type:** Reference Safety Boundary Policy Pack (Human Review Priority)
+Authoritative references for this PolicyPack are published via this GitHub repository.
+ENS records are used solely for identity and provenance anchoring.
 
 ---
 
