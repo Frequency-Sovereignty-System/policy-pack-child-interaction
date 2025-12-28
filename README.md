@@ -1,7 +1,6 @@
-**Authoritative Reference Notice**
+This repository constitutes the authoritative reference for PP-CHILD-INTERACTION v1.0.
+Earlier drafts, experiments, forks, or unpublished materials are non-normative.
 
-This repository represents the authoritative reference for PP-CHILD-INTERACTION v1.0.
-Earlier drafts, experiments, forks, or unpublished materials are not normative.
 
 
 # PolicyPack – Child Interaction Safety Boundary  
