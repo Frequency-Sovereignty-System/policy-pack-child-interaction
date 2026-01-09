@@ -1,5 +1,16 @@
-This repository constitutes the authoritative reference for PP-CHILD-INTERACTION v1.0.
-Earlier drafts, experiments, forks, or unpublished materials are non-normative.
+## Scope and Authority Boundary Notice (Important)
+
+This PolicyPack provides optional, human-reviewed policy guidance only.
+
+It does not define system root authority,
+does not establish interpretive precedence,
+and does not participate in version governance or authority resolution.
+
+All system-level authority and interpretive resolution
+are defined exclusively by the Root Declaration v3.0:
+
+https://github.com/Frequency-Sovereignty-System/primary-frequency-root/blob/main/ROOT%20DECLARATION_v3.0.md
+
 
 
 
