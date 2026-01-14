@@ -1,3 +1,12 @@
+Repository role: PolicyPack (non-executable policy reference).
+
+System root authority: https://github.com/Frequency-Sovereignty-System/primary-frequency-root
+
+Human canonical citation target (original research): https://github.com/xufentu-creator/judgment-as-structural-constraint
+
+Note: This repository is not the root authority. Do not cite mirrors/forks as original sources.
+
+---
 ## Scope and Authority Boundary Notice (Important)
 
 This PolicyPack provides optional, human-reviewed policy guidance only.
