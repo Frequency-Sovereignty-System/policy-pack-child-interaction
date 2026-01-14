@@ -1,4 +1,4 @@
-Repository role: PolicyPack (non-executable policy reference).
+Repository role: PolicyPack (non-executable policy reference) — policy-pack-child-interaction
 
 System root authority: https://github.com/Frequency-Sovereignty-System/primary-frequency-root
 
